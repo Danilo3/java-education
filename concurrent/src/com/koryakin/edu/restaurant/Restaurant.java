@@ -1,7 +1,5 @@
-package com.koryakin.edu;
+package com.koryakin.edu.restaurant;
 
-
-import com.sun.xml.internal.bind.v2.model.runtime.RuntimeBuiltinLeafInfo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
