@@ -1,2 +1,2 @@
 # java-education
-Simple educational projeсts on Java
+Simple educational Java coding and projects 
