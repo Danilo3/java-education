@@ -22,6 +22,9 @@
 target/
 .idea/
 
+
+JDBCTutorial/
+
 *.iml
 
 
