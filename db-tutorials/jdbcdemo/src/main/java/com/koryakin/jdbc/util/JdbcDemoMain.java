@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class JdbcDemoMain {
     public static void main(String[] args) {
+
         JDBCTutorialUtilities myJDBCTutorialUtilities;
         String propertiesFileName = "/home/dan/IdeaProjects/java-education/db-tutorials/jdbcdemo/src/main/resources/mysql-sample-properties.xml";
         try{
@@ -18,10 +19,7 @@ public class JdbcDemoMain {
         Connection myConnection = null;
         try {
             myConnection = myJDBCTutorialUtilities.getConnectionToDatabase();
-            //      JDBCTutorialUtilities.outputClientInfoProperties(myConnection);
-            // myConnection = myJDBCTutorialUtilities.getConnection("root", "root", "jdbc:mysql://localhost:3306/");
-            //       myConnection = myJDBCTutorialUtilities.
-            //         getConnectionWithDataSource(myJDBCTutorialUtilities.dbName,"derby","", "", "localhost", 3306);
+            JDBCTutorialUtilities.initializeTables(myConnection, myJDBCTutorialUtilities.dbName, myJDBCTutorialUtilities.dbms);
 
 
         } catch (SQLException e) {
@@ -31,8 +29,8 @@ public class JdbcDemoMain {
         } finally {
             JDBCTutorialUtilities.closeConnection(myConnection);
         }
-
     }
+
 
 }
 

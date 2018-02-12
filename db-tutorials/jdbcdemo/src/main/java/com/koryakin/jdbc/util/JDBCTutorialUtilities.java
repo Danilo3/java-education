@@ -66,37 +66,14 @@ public class JDBCTutorialUtilities {
   private Properties prop;
   
   public static void initializeTables(Connection con, String dbNameArg, String dbmsArg) throws SQLException {
-//    SuppliersTable mySuppliersTable =
-//      new SuppliersTable(con, dbNameArg, dbmsArg);
-//    CoffeesTable myCoffeeTable =
-//      new CoffeesTable(con, dbNameArg, dbmsArg);
-//    RSSFeedsTable myRSSFeedsTable =
-//      new RSSFeedsTable(con, dbNameArg, dbmsArg);
-//    ProductInformationTable myPIT =
-//      new ProductInformationTable(con, dbNameArg, dbmsArg);
-//
-//    System.out.println("\nDropping exisiting PRODUCT_INFORMATION, COFFEES and SUPPLIERS tables");
-//    myPIT.dropTable();
-//    myRSSFeedsTable.dropTable();
-//    myCoffeeTable.dropTable();
-//    mySuppliersTable.dropTable();
-//
-//    System.out.println("\nCreating and populating SUPPLIERS table...");
-//
-//    System.out.println("\nCreating SUPPLIERS table");
-//    mySuppliersTable.createTable();
-//    System.out.println("\nPopulating SUPPLIERS table");
-//    mySuppliersTable.populateTable();
-//
-//    System.out.println("\nCreating and populating COFFEES table...");
-//
-//    System.out.println("\nCreating COFFEES table");
-//    myCoffeeTable.createTable();
-//    System.out.println("\nPopulating COFFEES table");
-//    myCoffeeTable.populateTable();
-//
-//    System.out.println("\nCreating RSS_FEEDS table...");
-//    myRSSFeedsTable.createTable();
+      StudentTable studentTable = new StudentTable(con, dbNameArg, dbmsArg);
+
+      System.out.println("\nDropping exisiting Student, tables");
+      studentTable.dropTable();
+
+      System.out.println("\nCreating and populating STUDENTS table...");
+      studentTable.createTable();
+      studentTable.populateTable();
   }
   
   public static void rowIdLifetime(Connection conn) throws SQLException {
@@ -385,18 +362,11 @@ public class JDBCTutorialUtilities {
 
     try {
       myConnection = myJDBCTutorialUtilities.getConnection();
-      //      JDBCTutorialUtilities.outputClientInfoProperties(myConnection);
-      // myConnection = myJDBCTutorialUtilities.getConnection("root", "root", "jdbc:mysql://localhost:3306/");
-      //       myConnection = myJDBCTutorialUtilities.
-      //         getConnectionWithDataSource(myJDBCTutorialUtilities.dbName,"derby","", "", "localhost", 3306);
 
-      // Java DB does not have an SQL create database command; it does require createDatabase
       JDBCTutorialUtilities.createDatabase(myConnection,
                                            myJDBCTutorialUtilities.dbName,
                                            myJDBCTutorialUtilities.dbms);
 
-      JDBCTutorialUtilities.cursorHoldabilitySupport(myConnection);
-      JDBCTutorialUtilities.rowIdLifetime(myConnection);
 
     } catch (SQLException e) {
       JDBCTutorialUtilities.printSQLException(e);
